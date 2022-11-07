@@ -12,26 +12,32 @@ const AutoSearch = () => {
       .then((res) => {
         let ArrData = [];
         res.map((item, index) => {
-            item.label = item.name
-        })
+          item.label = item.name;
+        });
         ArrData = res;
         setSearch(ArrData);
+        // console.log("Test", ArrData);
       });
+
+      
   };
   useEffect(() => {
     getData();
   }, []);
-  
+
   return (
     <>
-      <Typeahead
-        className="SearchBox"
-        id="basic-example"
-        onChange={setSearch1}
-        options={Search}
-        placeholder="Choose a state..."
-        selected={Search1}
-      />
+      <div className="contanier">
+        <h1>Search DATA</h1>
+        <Typeahead
+          className="SearchBox"
+          id="basic-example"
+          onChange={setSearch1}
+          options={Search}
+          placeholder="Choose a state..."
+          selected={Search1}
+        />
+      </div>
     </>
   );
 };
