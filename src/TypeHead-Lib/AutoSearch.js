@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 // import { ReactDOM } from "react-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
 import DATA from "./dummyData";
-console.log("aaaa", DATA);
+// console.log("aaaa",DATA);
+
 
 const AutoSearch = () => {
   const [Search1, setSearch1] = useState([]);
@@ -25,29 +26,33 @@ const AutoSearch = () => {
 
     //     setSearch(ArrData);
     //   });
-
-    let res = await axios.get("https://jsonplaceholder.typicode.com/comments");
+    
+    let res = await axios.get("https://jsonplaceholder.typicode.com/comments")
+    // let res1 = await axios.get("https://jsonplaceholder.typicode.com/users")
+    // console.log("asasasa",res1);
     let ArrData = [];
     let ArrData2 = [];
-    debugger;
-    let x = res.data?.map((val, idx) => {
-      let status = false;
-      let y = DATA?.map((subVal, subIdx) => {
-        if (subIdx === idx && !status) {
-          status = true;
-          ArrData2.push({ ...val, location: subVal.label });
-        }
-      });
-      !status && ArrData2.push({ ...val });
-    });
-
-    for (let item of ArrData2) {
-      item.location && ArrData.push(item.location);
+    // debugger
+    let x =  res.data?.map((val,idx)=>{
+      let status = false
+        let y = DATA?.map((subVal,subIdx)=>{
+          if(subIdx === idx && !status){
+            status=true
+            ArrData2.push({...val,location:subVal.label})
+          }
+        })
+        !status && ArrData2.push({...val})
+      })
+    for(let item of ArrData2){
+      item.location && ArrData.push(item.location)
     }
+    console.log("test",ArrData2);
     setSearch(ArrData);
+
 
     // getData2();
   };
+
 
   // const getData2 = () => {
   //   console.log("Searchzsdfzxdfcd", Search);
