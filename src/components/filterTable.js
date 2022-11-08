@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const FillterTable = () => {
-//   const [Data, FetchData] = useState();
-//   const getData =()=>{
-//     fetch("")
-//   }
+  //   const [Data, FetchData] = useState();
+  //   const getData =()=>{
+  //     fetch("")
+  //   }
   return (
     <>
       <div className="container">
@@ -35,6 +35,13 @@ const FillterTable = () => {
             </tr>
           </thead>
           <tbody className="text-center">
+            <tr>
+              <th scope="col">Employees ID</th>
+              <th scope="col">Employees Name</th>
+              <th scope="col">Employees Department</th>
+              <th scope="col">Employees Code</th>
+              <th scope="col">Employees Location</th>
+            </tr>
             <tr>
               <td colSpan={4}>
                 <h4>Data Note Found...</h4>
